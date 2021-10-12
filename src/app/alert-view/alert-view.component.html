@@ -1,0 +1,15 @@
+<div class="mask"></div>
+<div class="card">
+  <div class="header">
+    Add new timer
+  </div>
+
+  <div class="message">
+    <ng-content></ng-content>
+  </div>
+
+  <div class="footer">
+    <button class="cancel-button" (click)="onCancel.emit()">Cancel</button>
+    <button (click)="onSubmit.emit()">Ok</button>
+  </div>
+</div>
