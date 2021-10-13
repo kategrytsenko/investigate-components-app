@@ -4,13 +4,24 @@
   <app-timer [init]="2" (onComplete)="logCountdownEnd()"></app-timer>
   <app-timer [init]="165" (onComplete)="logCountdownEnd()"></app-timer>
 
-  <button class="add" (click)="showAddTimer()">+</button>
+  <button class="add box-shadow" (click)="showAddTimer()">+</button>
+<!--  [hidden]="!isAddTimerVisible"-->
+  <app-alert-view [ngClass]="{'item__hidden': !isAddTimerVisible}"
+                  [itemHidden]="!isAddTimerVisible"
+                  class="app-alert-view">
 
-  <app-alert-view [hidden]="!isAddTimerVisible"
-                  (onCancel)="hideAddTimer()"
-                  (onSubmit)="hideAddTimer()">
-    <label>Set the number of seconds for your timer</label>
-    <input [(ngModel)]="time" type="number">
+    <div class="header">
+      Add new timer
+    </div>
+
+    <label>Set the number of seconds for your timer: </label>
+    <input [(ngModel)]="time" type="number" class="app-alert-view__input">
+
+    <div class="buttons">
+      <button class="cancel-button" (click)="hideAddTimer()">Cancel</button>
+      <button (click)="hideAddTimer()">Ok</button>
+    </div>
+
   </app-alert-view>
 </div>
 

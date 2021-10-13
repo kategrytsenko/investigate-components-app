@@ -1,15 +1,12 @@
-<div class="mask"></div>
-<div class="card">
-  <div class="header">
-    Add new timer
-  </div>
+<div class="mask" [ngClass]="{'item__hidden': itemHidden}"></div>
+<div class="card box-shadow"  [ngClass]="{'item__hidden': itemHidden}">
+  <ng-content select=".header"></ng-content>
 
   <div class="message">
     <ng-content></ng-content>
   </div>
 
   <div class="footer">
-    <button class="cancel-button" (click)="onCancel.emit()">Cancel</button>
-    <button (click)="onSubmit.emit()">Ok</button>
+    <ng-content select=".buttons"></ng-content>
   </div>
 </div>
